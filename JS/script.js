@@ -47,7 +47,7 @@ function dodajKlasu(classList) {
 
     setTimeout(() => {
         randomKocka.classList.remove(odabranaKlasa);
-    }, 2000);
+    }, Math.floor(Math.random() * 1500));
 }
 
 function pocniIgru() {
@@ -90,7 +90,11 @@ function odbrojavanje() {
 }
 
 //Dio koda preuzet sa: https://stackoverflow.com/questions/19655189/javascript-click-event-listener-on-class
-document.querySelectorAll('.kocka').forEach(kocka => {
+grid.addEventListener('click', function(e) {
+    //Kod preuzet sa linka: https://www.freecodecamp.org/news/event-delegation-javascript/
+    //na linku se koristi za ime taga, dok sam ja napravio da radi preko klase
+    if (e.target.classList.contains('kocka')) {
+    document.querySelectorAll('.kocka').forEach(kocka => {
     kocka.addEventListener('click', function izbrisiKlase() {
         if (kocka.classList.contains('projekat')) {
             bodovi += 10;
@@ -120,6 +124,8 @@ document.querySelectorAll('.kocka').forEach(kocka => {
         kocka.removeEventListener('click', izbrisiKlase);
     });
 });
+    }
+})
 
 pocniIgruBtn.addEventListener('click', pocniIgru)
 restartIgruBtn.addEventListener('click', refreshIgru)

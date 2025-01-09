@@ -76,36 +76,49 @@ button:hover {
 .projekat {
     background: url('../IMG/projekat.png');
     background-size: cover;
+    border: 3px solid var(--projekat);
 }
 
 .padispita1 {
     background: url('../IMG/pad.jpg');
     background-size: cover;
+    border: 3px solid var(--pad-ispita);
 }
 
 .zavrsniIspit {
     background: url('../IMG/zavrsni.webp');
     background-size: cover;
+    border: 3px solid var(--zavrsni);
 }
 
 .test {
     background: url('../IMG/ispit.jpg');
     background-size: cover;
+    border: 3px solid var(--test);
 }
 
 .bonus1 {
     background: url('../IMG/bonus1.jpg');
     background-size: cover;
+    border: 3px solid var(--bonus);
 }
 
 .bonus2 {
     background: url('../IMG/vrijeme.jpg');
     background-size: cover;
+    border: 3px solid var(--bonus-2);
 }
 
 .padispita2 {
     background: url('../IMG/pad2.jpg');
     background-size: cover;
+    border: 3px solid var(--pad-ispita-2);
+}
+
+.led {
+    background: url('../IMG/led.png');
+    background-size: cover;
+    border: 6px solid rgb(26, 26, 255);
 }
 
 section {
