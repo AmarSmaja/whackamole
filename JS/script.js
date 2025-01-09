@@ -7,7 +7,6 @@ let grid = document.getElementsByClassName('grid')[0];
 //Kod preuzet sa: https://stackoverflow.com/questions/9419263/how-to-play-audio
 let clickMuzika = new Audio('../IMG/click.mp3')
 let losaMuzika = new Audio('../IMG/los.mp3')
-let krajTajmera = new Audio('../IMG/vrijeme.mp3')
 
 let bodovi = 0
 let preostaloVrijeme = 30
@@ -16,7 +15,7 @@ let tajmerId = null
 let randomSlikaId = null
 
 let listaSvakih2 = ['projekat', 'padispita1', 'test']
-let listaSvakih10 = ['padispita2', 'zavrsniIspit']
+let listaSvakih10 = ['padispita2', 'zavrsniIspit', 'bonus2', 'bonus1']
 let listaSvakih30 = ['bonus1', 'bonus2', 'padispita2']
 
 function randomKlasa(classList) {
@@ -36,6 +35,8 @@ function dodajKlasu(classList) {
     
     //Kod nije preuzet, nego sam koristio ovaj link da uradim forEach: 
     //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
+    //Za brisanje svake klase osim glavne, kod koristen od: 
+    //https://bito.ai/resources/remove-all-classes-javascript-javascript-explained/
     klaseKocke.forEach(function(klasa) {
         if (klasa !== 'kocka') {
             randomKocka.classList.remove(klasa);
@@ -56,9 +57,21 @@ function pocniIgru() {
     bodoviP.innerHTML = 'Vasi bodovi: 0';
     preostaloVrijemeP.innerHTML = 'Preostalo vrijeme: 30s';
 
-    tajmerId = setInterval(() => {
+    setInterval(() => {
         dodajKlasu(listaSvakih2);
     }, 2000);
+    
+    setInterval(() => {
+        dodajKlasu(listaSvakih10);
+    }, 5000);
+    
+    setInterval(() => {
+        dodajKlasu(listaSvakih30);
+    }, 10000);
+
+    // tajmerId = setInterval(() => {
+    //     dodajKlasu(listaSvakih2);
+    // }, 2000);
 
     setInterval(odbrojavanje, 1000);
 }
@@ -81,18 +94,25 @@ document.querySelectorAll('.kocka').forEach(kocka => {
     kocka.addEventListener('click', function izbrisiKlase() {
         if (kocka.classList.contains('projekat')) {
             bodovi += 10;
+            clickMuzika.play()
         } else if (kocka.classList.contains('padispita1')) {
             bodovi -= 50;
+            losaMuzika.play()
         } else if (kocka.classList.contains('zavrsniIspit')) {
             bodovi += 20
+            clickMuzika.play()
         } else if (kocka.classList.contains('test')) {
             bodovi += 5
+            clickMuzika.play()
         } else if (kocka.classList.contains('bonus1')) {
             bodovi += 50
+            clickMuzika.play()
         } else if (kocka.classList.contains('bonus2')) {
             preostaloVrijeme += 5
+            clickMuzika.play()
         } else if (kocka.classList.contains('padispita2')) {
             bodovi = 0
+            losaMuzika.play()
         }
         bodoviP.innerText = `Bodovi: ${bodovi}`;
 
