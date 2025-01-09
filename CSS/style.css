@@ -1,0 +1,99 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    /* width: 50rem; */
+    margin: 20px auto;
+    text-align: center;
+}
+
+.main h1 {
+    font-size: 54px;
+    color: white;
+}
+
+.main h2 {
+    display: inline-block;
+    padding: 10px 5px;
+    border-radius: 15px;
+    margin: 10px;
+}
+
+button {
+    margin-left: 20px;
+    height: 50px;
+    font-weight: 600;
+    background-color: rgb(62, 255, 191);
+    width: 15rem;
+    padding: 10px 5px;
+    border-radius: 10px;
+    border: none;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.kocka {
+    width: 150px;
+    height: 150px;
+    border: 1px solid black;
+    margin: 10px;
+    box-shadow: 1px 3px 5px aquamarine;
+}
+
+.projekat {
+    background: url('../IMG/projekat.png');
+    background-size: cover;
+}
+
+.padispita1 {
+    background: url('../IMG/pad.jpg');
+    background-size: cover;
+}
+
+.zavrsniIspit {
+    background: url('../IMG/zavrsni.webp');
+    background-size: cover;
+}
+
+.test {
+    background: url('../IMG/ispit.jpg');
+    background-size: cover;
+}
+
+.bonus1 {
+    background: url('../IMG/bonus1.jpg');
+    background-size: cover;
+}
+
+.bonus2 {
+    background: url();
+    background-size: cover;
+}
+
+.padispita2 {
+    background: url('../IMG/pad2.jpg');
+    background-size: cover;
+}
