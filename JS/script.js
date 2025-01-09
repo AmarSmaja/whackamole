@@ -50,13 +50,17 @@ function dodajKlasu(classList) {
 }
 
 function pocniIgru() {
-    bodovi = 0
-    preostaloVrijeme = 30
+    bodovi = 0;
+    preostaloVrijeme = 30;
 
-    bodoviP.innerHTML = 'Vasi bodovi: 0'
-    preostaloVrijemeP.innerHTML = 'Preostalo vrijeme: 30s'
+    bodoviP.innerHTML = 'Vasi bodovi: 0';
+    preostaloVrijemeP.innerHTML = 'Preostalo vrijeme: 30s';
 
-    setInterval(odbrojavanje, 1000)
+    tajmerId = setInterval(() => {
+        dodajKlasu(listaSvakih2);
+    }, 2000);
+
+    setInterval(odbrojavanje, 1000);
 }
 
 function refreshIgru() {
