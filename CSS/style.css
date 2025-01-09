@@ -1,3 +1,13 @@
+:root {
+    --bonus: #ffba08;
+    --bonus-2: #bb3e03;
+    --zavrsni: #4f772d;
+    --projekat: #014f86;
+    --test: #8338ec;
+    --pad-ispita: #ef233c;
+    --pad-ispita-2: #121113;
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -56,11 +66,12 @@ button:hover {
 }
 
 .kocka {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     border: 1px solid black;
     margin: 10px;
-    box-shadow: 1px 3px 5px aquamarine;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 .projekat {
@@ -96,4 +107,88 @@ button:hover {
 .padispita2 {
     background: url('../IMG/pad2.jpg');
     background-size: cover;
+}
+
+section {
+    width: 100%;
+    height: 100vh;
+}
+
+section.meni {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.meni-wrapper {
+    width: 60%;
+    height: 90vh;
+}
+
+.naslov {
+    margin-bottom: 50px;
+}
+
+.btn {
+    margin: 10px 0px;
+    width: 30%;
+    height: 60px;
+    border: 1px solid transparent;
+    background-color: rgb(55, 92, 167);
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background-color: rgb(34, 62, 117);
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.btn-red {
+    background-color: red;
+}
+
+.btn-red:hover {
+    background-color: rgb(124, 0, 0);
+}
+
+.upute-wrapper {
+    width: 80%;
+    height: 100vh;
+}
+
+.upute-wrapper h1 {
+    color: rgb(55, 92, 167);
+    font-size: 50px;
+}
+
+.tekst {
+    width: 100%;
+    height: 100vh;
+}
+
+.tekst p {
+    font-size: 20px;
+}
+
+.tekst ul {
+    font-size: 18px;
+    padding: 10px 50px;
+}
+
+span {
+    font-weight: 700;
 }
