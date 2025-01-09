@@ -2,11 +2,12 @@ let bodoviP = document.getElementById('bodovi')
 let preostaloVrijemeP = document.getElementById('vrijeme')
 let pocniIgruBtn = document.getElementById('novaIgrica')
 let restartIgruBtn = document.getElementById('restartIgricu')
-let grid = document.getElementsByClassName('grid')[0];
+let grid = document.getElementsByClassName('grid')[0]
 
 //Kod preuzet sa: https://stackoverflow.com/questions/9419263/how-to-play-audio
 let clickMuzika = new Audio('../IMG/click.mp3')
 let losaMuzika = new Audio('../IMG/los.mp3')
+let jokerMuzika = new Audio('../IMG/joker.mp3')
 
 let bodovi = 0
 let preostaloVrijeme = 30
@@ -17,6 +18,7 @@ let randomSlikaId = null
 let listaSvakih2 = ['projekat', 'padispita1', 'test']
 let listaSvakih10 = ['padispita2', 'zavrsniIspit', 'bonus2', 'bonus1']
 let listaSvakih30 = ['bonus1', 'bonus2', 'padispita2']
+let specijalni = ['joker', 'hide', 'scale']
 
 function randomKlasa(classList) {
     let randomIndeks = Math.floor(Math.random() * classList.length)
@@ -47,10 +49,11 @@ function dodajKlasu(classList) {
 
     setTimeout(() => {
         randomKocka.classList.remove(odabranaKlasa);
-    }, Math.floor(Math.random() * 1500));
+    }, 2000);
 }
 
 function pocniIgru() {
+
     bodovi = 0;
     preostaloVrijeme = 30;
 
@@ -69,6 +72,10 @@ function pocniIgru() {
         dodajKlasu(listaSvakih30);
     }, 10000);
 
+    setInterval(() => {
+        dodajKlasu(specijalni);
+    }, 5000)
+
     // tajmerId = setInterval(() => {
     //     dodajKlasu(listaSvakih2);
     // }, 2000);
@@ -81,9 +88,10 @@ function refreshIgru() {
 }
 
 function odbrojavanje() {
+
     preostaloVrijeme--
     preostaloVrijemeP.innerHTML = `Preostalo vrijeme: ${preostaloVrijeme}s`
-
+    
     if (preostaloVrijeme == 0) {
         location.reload()
     }
@@ -96,6 +104,8 @@ grid.addEventListener('click', function(e) {
     if (e.target.classList.contains('kocka')) {
     document.querySelectorAll('.kocka').forEach(kocka => {
     kocka.addEventListener('click', function izbrisiKlase() {
+        console.log(kocka.classList);
+        
         if (kocka.classList.contains('projekat')) {
             bodovi += 10;
             clickMuzika.play()
@@ -117,10 +127,19 @@ grid.addEventListener('click', function(e) {
         } else if (kocka.classList.contains('padispita2')) {
             bodovi = 0
             losaMuzika.play()
+        } else if (kocka.classList.contains('joker')) {
+            window.open()
+            jokerMuzika.play()
+        } else if (kocka.classList.contains('hide')) {
+            document.body.style.opacity = 0.2
+        } else if (kocka.classList.contains('scale')) {
+            kocka.style.transition = 'transform 0.4s';
+            kocka.style.transform = 'scale(0.2)';
         }
+
         bodoviP.innerText = `Bodovi: ${bodovi}`;
 
-        kocka.classList.remove('projekat', 'padispita1', 'padispita2', 'test', 'zavrsniIspit', 'bonus1', 'bonus2');
+        kocka.classList.remove('projekat', 'padispita1', 'padispita2', 'test', 'zavrsniIspit', 'bonus1', 'bonus2', 'joker', 'hide', 'scale');
         kocka.removeEventListener('click', izbrisiKlase);
     });
 });

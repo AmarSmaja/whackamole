@@ -115,10 +115,22 @@ button:hover {
     border: 3px solid var(--pad-ispita-2);
 }
 
-.led {
-    background: url('../IMG/led.png');
+.joker {
+    background: url('../IMG/joker.png');
     background-size: cover;
-    border: 6px solid rgb(26, 26, 255);
+    border: 6px solid purple;
+}
+
+.hide {
+    background: url('../IMG/hide.png');
+    background-size: cover;
+    border: 6px solid gray;
+}
+
+.scale {
+    background: url('../IMG/smanjivanje.jpg');
+    background-size: cover;
+    border: 6px solid greenyellow;
 }
 
 section {
