@@ -3,6 +3,7 @@ let preostaloVrijemeP = document.getElementById('vrijeme')
 let pocniIgruBtn = document.getElementById('novaIgrica')
 let restartIgruBtn = document.getElementById('restartIgricu')
 let grid = document.getElementsByClassName('grid')[0]
+let nazadPocetnaBtn = document.querySelector('.nazadPocetna')
 
 //Kod preuzet sa: https://stackoverflow.com/questions/9419263/how-to-play-audio
 let clickMuzika = new Audio('../IMG/click.mp3')
@@ -18,7 +19,7 @@ let randomSlikaId = null
 let listaSvakih2 = ['projekat', 'padispita1', 'test']
 let listaSvakih10 = ['padispita2', 'zavrsniIspit', 'bonus2', 'bonus1']
 let listaSvakih30 = ['bonus1', 'bonus2', 'padispita2']
-let specijalni = ['joker', 'hide', 'scale']
+let specijalni = ['joker', 'hide', 'scale', 'home']
 
 function randomKlasa(classList) {
     let randomIndeks = Math.floor(Math.random() * classList.length)
@@ -87,6 +88,10 @@ function refreshIgru() {
     location.reload()
 }
 
+function nazadPocetnu() {
+    window.location.href = 'pocetna.html'
+}
+
 function odbrojavanje() {
 
     preostaloVrijeme--
@@ -135,11 +140,13 @@ grid.addEventListener('click', function(e) {
         } else if (kocka.classList.contains('scale')) {
             kocka.style.transition = 'transform 0.4s';
             kocka.style.transform = 'scale(0.2)';
+        } else if (kocka.classList.contains('home')) {
+            window.location.href = 'pocetna.html'
         }
 
         bodoviP.innerText = `Bodovi: ${bodovi}`;
 
-        kocka.classList.remove('projekat', 'padispita1', 'padispita2', 'test', 'zavrsniIspit', 'bonus1', 'bonus2', 'joker', 'hide', 'scale');
+        kocka.classList.remove('projekat', 'padispita1', 'padispita2', 'test', 'zavrsniIspit', 'bonus1', 'bonus2', 'joker', 'hide', 'scale', 'home');
         kocka.removeEventListener('click', izbrisiKlase);
     });
 });
@@ -148,3 +155,4 @@ grid.addEventListener('click', function(e) {
 
 pocniIgruBtn.addEventListener('click', pocniIgru)
 restartIgruBtn.addEventListener('click', refreshIgru)
+nazadPocetnaBtn.addEventListener('click', nazadPocetnu)
